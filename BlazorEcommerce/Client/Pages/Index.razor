@@ -1,17 +1,8 @@
 ﻿@page "/"
+@page "/search/{searchText}"
 @page "/{categoryUrl}"
 @inject IProductService ProductService
 
 <PageTitle>Blazor Ecommerce Store</PageTitle>
 
 <ProductList />
-
-@code {
-    [Parameter]
-    public string CategoryUrl { get; set; }
-
-    protected override async Task OnParametersSetAsync()
-    {
-        await ProductService.GetProducts(CategoryUrl);
-    }
-}
