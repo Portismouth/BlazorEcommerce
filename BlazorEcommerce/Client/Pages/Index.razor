@@ -1,8 +1,14 @@
 ﻿@page "/"
-@page "/search/{searchText}"
+@page "/search/{searchText}/{page:int}"
 @page "/{categoryUrl}"
 @inject IProductService ProductService
 
 <PageTitle>Blazor Ecommerce Store</PageTitle>
-
-<ProductList />
+@if (SearchText == null && CategoryUrl == null)
+{
+    <FeaturedProducts />
+}
+else
+{
+    <ProductList />
+}
